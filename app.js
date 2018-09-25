@@ -53,19 +53,28 @@ $(window).scroll(function() {
   /*******************************************************************/
 
   const addColor = (count) =>{
-    //console.log($(event.target).css('background-color'));
-
+  
     for(let i = 0; i < count; i++)
     {
       const red =  Math.floor(Math.random() *  255);
       const green =  Math.floor(Math.random() *  255);
       const blue =  Math.floor(Math.random() *  255);
       const randHex = 'rgb('+red+','+green+','+blue+')';
-      let num1 = Math.floor(Math.random() * count) + 1;
-      let num2 = Math.floor(Math.random() * count) + 1;
-      console.log(num1,num2);
-        $('#1').css('background-color', randHex);
+      let endNum = count-1;
+      let $num1 = Math.floor(Math.random() * endNum) + 1;
+      let $num2 = Math.floor(Math.random() * endNum) + 1;
+      let $value1 = $('#'+$num1).val();
+      let $value2 = $('#'+$num2).val();
 
+      if($value1 == 0 && $value2 == 0){
+        $('#'+$num1).css('background-color', randHex);
+        $('#'+$num2).css('background-color', randHex);
+        $('#'+$num1).val("1");
+        $('#'+$num2).val("1");
+      }
+      else{
+        i=0;
+      }
     }
 
   }
@@ -76,16 +85,16 @@ $(window).scroll(function() {
   let k = 0;
   for(let i = 0; i < count; i++)
   {
-     k= k+1;
     const $square = $('<div>').addClass('squares').val("0").attr('id',k).appendTo('container');
-    $square.css('scale', '1:1')
+    k= k+1;
+  //  $square.css('scale', '1:1')
   }
   addColor(count);
 
   }
   /*******************************************************************/
   $('#easy').on('click', (event)=>{
-    generateSquares(9);
+    generateSquares(12);
     $('#level').css('display','none');
     $('#game').css('visibility','visible');
     $('container').css('width','30%');
@@ -94,7 +103,7 @@ $(window).scroll(function() {
 
 
   $('#medium').on('click', (event)=>{
-    generateSquares(16);
+    generateSquares(18);
     $('#level').css('display','none');
     $('#game').css('visibility','visible');
     $('container').css('width','40%');
