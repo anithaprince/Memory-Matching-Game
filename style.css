@@ -329,7 +329,7 @@ bounce
 
 /**********************Game Section********************/
 
-#tictactoe{
+#game{
   display: flex;
   justify-content: center;
   align-items:  center;
