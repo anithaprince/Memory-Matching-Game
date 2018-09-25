@@ -53,31 +53,36 @@ $(window).scroll(function() {
   /*******************************************************************/
 
   const addColor = (count) =>{
-  
-    for(let i = 0; i < count; i++)
-    {
-      const red =  Math.floor(Math.random() *  255);
-      const green =  Math.floor(Math.random() *  255);
-      const blue =  Math.floor(Math.random() *  255);
-      const randHex = 'rgb('+red+','+green+','+blue+')';
-      let endNum = count-1;
-      let $num1 = Math.floor(Math.random() * endNum) + 1;
-      let $num2 = Math.floor(Math.random() * endNum) + 1;
-      let $value1 = $('#'+$num1).val();
-      let $value2 = $('#'+$num2).val();
 
-      if($value1 == 0 && $value2 == 0){
-        $('#'+$num1).css('background-color', randHex);
-        $('#'+$num2).css('background-color', randHex);
-        $('#'+$num1).val("1");
-        $('#'+$num2).val("1");
-      }
-      else{
-        i=0;
+  for(let j = 0; j < count; j++)
+  {
+    if($('#'+j).val()==0)
+    {
+      for(let i = 0; i < count; i++)
+      {
+        const red =  Math.floor(Math.random() *  255);
+        const green =  Math.floor(Math.random() *  255);
+        const blue =  Math.floor(Math.random() *  255);
+        const randHex = 'rgb('+red+','+green+','+blue+')';
+        let endNum = count-1;
+        let $num1 = Math.floor(Math.random() * endNum) + 1;
+        let $num2 = Math.floor(Math.random() * endNum) + 1;
+        let $value1 = $('#'+$num1).val();
+        let $value2 = $('#'+$num2).val();
+
+        if($value1 == 0 && $value2 == 0)
+        {
+          $('#'+$num1).css('background-image', 'none');
+          $('#'+$num2).css('background-color', randHex);
+          $('#'+$num1).css('background-color', randHex);
+          $('#'+$num2).css('background-color', randHex);
+          $('#'+$num1).val("1");
+          $('#'+$num2).val("1");
+        }
       }
     }
-
   }
+};
 
   /*******************************************************************/
   //function to create the grids
