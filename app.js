@@ -97,17 +97,38 @@ $(window).scroll(function() {
   }
   /*******************************************************************/
   //function to create the tic tac board
-  const generateSquares = () => {
-  for(let i = 0; i < 9; i++)
+  const generateSquares = (count) => {
+  for(let i = 0; i < count; i++)
   {
     const $square = $('<div>').addClass('squares').text(" ").attr('id',i).appendTo('container');
     const $squareValue = $square.text();
-    $square.on('click', playGame);
+    //$square.on('click', playGame);
   }
 
   }
   /*******************************************************************/
-  generateSquares();
+  //generateSquares();
 
+
+
+
+  $('#easy').on('click', (event)=>{
+    generateSquares(9);
+    $('#level').css('display','none');
+    $('#game').css('visibility','visible');
+  });
+
+
+  $('#medium').on('click', (event)=>{
+    generateSquares(15);
+    $('#level').css('display','none');
+    $('#game').css('visibility','visible');
+  });
+
+  $('#hard').on('click', (event)=>{
+    generateSquares(20);
+    $('#level').css('display','none');
+    $('#game').css('visibility','visible');
+  });
 
 });

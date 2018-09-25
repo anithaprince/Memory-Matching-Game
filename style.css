@@ -328,27 +328,88 @@ bounce
 }
 
 /**********************Game Section********************/
+#level{
+  width:25%;
+  min-height: 500px;
+  margin: auto;
+  margin-top: 5%;
+  border-radius: 5%;
+  background: rgba(183,222,237,1);
+  background: -moz-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(183,222,237,1)), color-stop(15%, rgba(113,206,239,1)), color-stop(69%, rgba(33,180,226,1)), color-stop(100%, rgba(183,222,237,1)));
+  background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
+  background: -o-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
+  background: -ms-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
+  background: linear-gradient(to bottom, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b7deed', endColorstr='#b7deed', GradientType=0 );
+}
+
+#level>h1, container>h1{
+  width: 100%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  font-size: 4em;
+  color: #ffde00;
+  -webkit-text-stroke: 1px #b08736;
+}
+.button {
+  padding: 20px;
+  width: 60%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin-left: 15%;
+  margin-top: 2%;
+  background:url(images/button.png) no-repeat;
+  background-size:contain;
+  cursor:pointer;
+
+}
+
+.button:hover{
+  transform: scale(1.1);
+}
+.button:active{
+  transform: scale(1);
+  background-position: 50px;
+
+}
+.button-text {
+  text-transform: uppercase;
+  font-size: 3em;
+  font-family: 'Paytone One', sans-serif;
+  width: 100%;
+  text-shadow: 0.15vw 0.15vw rgba(0, 55, 214, 0.67);
+  color: #ffde00;
+  text-align: center;
+  font-size: 28px;
+}
 
 #game{
   display: flex;
   justify-content: center;
   align-items:  center;
+  visibility: hidden;
 }
+
 container{
-  border: none;
-  width: 500px;
-  height: 500px;
+  margin: auto;
+  width:50%;
+  min-height: 500px;
   display:flex;
   align-items: flex-start;
   flex-wrap:wrap;
-  background-image: url(images/grid.png);
+  flex-direction: row;
 }
 
 
 .squares{
-  //border: 3px white solid;
+  background-image: url(images/grid.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: red;
   width: 160px;
   height: 160px;
+  border: 1px white solid;
   color: red;
   font-weight: bold;
   font-size: 4em;
