@@ -50,85 +50,64 @@ $(window).scroll(function() {
 		});
 	});
 
-
-  let $count = 'X';
-
   /*******************************************************************/
-  //function to play game
-  const playGame = (event) =>{
-    const $currentVal =$(event.target).text();
-    if($currentVal == " " && $count == 'X')
-    {
-        $(event.target).text($count).css('color','orange');
-        $count = 'O';
-    }
-    else if ($currentVal == " " && $count == 'O')
-    {
-      $(event.target).text($count).css('color','#7AF724');
-      $count = 'X';
-    }
-    //function to check if game won
-    const checkWin =() =>
-    {
-      const $id = $(event.target).attr('id');
-      const $id_before =$id-1;
-      const $idbefore_before = $id_before-1;
-      // const $after =$id+1;
-      // const $after_after = $after+1;
-      console.log($id + $id_before + $idbefore_before);
 
-      let $valCurrent = $('.squares').eq($id).text();
-      const $val1 =$('.squares').eq($id_before).text();
-      const $val2 =$('.squares').eq($idbefore_before).text();
-      // const $val3 =$('.squares').eq($after).text();
-      // const $val4 =$('.squares').eq($after).text();
+  const addColor = (count) =>{
+    //console.log($(event.target).css('background-color'));
 
-      //console.log($valCurrent,$val1,$val2);
+    for(let i = 0; i < count; i++)
+    {
+      const red =  Math.floor(Math.random() *  255);
+      const green =  Math.floor(Math.random() *  255);
+      const blue =  Math.floor(Math.random() *  255);
+      const randHex = 'rgb('+red+','+green+','+blue+')';
+      let num1 = Math.floor(Math.random() * count) + 1;
+      let num2 = Math.floor(Math.random() * count) + 1;
+      console.log(num1,num2);
+        $('#1').css('background-color', randHex);
 
-      if ($id == '2' || $id == '5' || $id == '8')
-      {
-        if ($valCurrent == $val1 && $val1 == $val2 ){
-          console.log($valCurrent + ' Won the Game');
-        }
-      }
     }
 
-    checkWin();
   }
+
   /*******************************************************************/
-  //function to create the tic tac board
+  //function to create the grids
   const generateSquares = (count) => {
+  let k = 0;
   for(let i = 0; i < count; i++)
   {
-    const $square = $('<div>').addClass('squares').text(" ").attr('id',i).appendTo('container');
-    const $squareValue = $square.text();
-    //$square.on('click', playGame);
+     k= k+1;
+    const $square = $('<div>').addClass('squares').val("0").attr('id',k).appendTo('container');
+    $square.css('scale', '1:1')
   }
+  addColor(count);
 
   }
   /*******************************************************************/
-  //generateSquares();
-
-
-
-
   $('#easy').on('click', (event)=>{
     generateSquares(9);
     $('#level').css('display','none');
     $('#game').css('visibility','visible');
+    $('container').css('width','30%');
+
   });
 
 
   $('#medium').on('click', (event)=>{
-    generateSquares(15);
+    generateSquares(16);
     $('#level').css('display','none');
     $('#game').css('visibility','visible');
+    $('container').css('width','40%');
+
   });
 
   $('#hard').on('click', (event)=>{
     generateSquares(20);
     $('#level').css('display','none');
     $('#game').css('visibility','visible');
+    $('container').css('width','50%');
   });
+
+
 
 });

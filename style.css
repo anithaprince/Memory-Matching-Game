@@ -393,7 +393,6 @@ bounce
 
 container{
   margin: auto;
-  width:50%;
   min-height: 500px;
   display:flex;
   align-items: flex-start;
@@ -406,11 +405,8 @@ container{
   background-image: url(images/grid.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-color: red;
   width: 160px;
   height: 160px;
-  border: 1px white solid;
-  color: red;
   font-weight: bold;
   font-size: 4em;
   display:flex;
