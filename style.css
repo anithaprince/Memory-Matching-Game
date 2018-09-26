@@ -407,10 +407,13 @@ container{
   background-repeat: no-repeat;
   width: 160px;
   height: 160px;
-  font-weight: bold;
-  font-size: 4em;
   display:flex;
   align-items: center;
   justify-content: center;
 
+
+}
+.squares:hover{
+  /* transform: rotate(180deg);
+  transition-duration: 2s; */
 }
