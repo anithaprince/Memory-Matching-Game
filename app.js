@@ -53,35 +53,52 @@ $(window).scroll(function() {
   /*******************************************************************/
 
   const addColor = (count) =>{
+    let arrGrid = [];
+    let count1 = 0;
 
-  for(let j = 0; j < count; j++)
-  {
-    if($('#'+j).val()==0)
-    {
       for(let i = 0; i < count; i++)
       {
-        const red =  Math.floor(Math.random() *  255);
-        const green =  Math.floor(Math.random() *  255);
-        const blue =  Math.floor(Math.random() *  255);
-        const randHex = 'rgb('+red+','+green+','+blue+')';
-        let endNum = count-1;
-        let $num1 = Math.floor(Math.random() * endNum) + 1;
-        let $num2 = Math.floor(Math.random() * endNum) + 1;
-        let $value1 = $('#'+$num1).val();
-        let $value2 = $('#'+$num2).val();
-
-        if($value1 == 0 && $value2 == 0)
-        {
-          $('#'+$num1).css('background-image', 'none');
-          $('#'+$num2).css('background-color', randHex);
-          $('#'+$num1).css('background-color', randHex);
-          $('#'+$num2).css('background-color', randHex);
-          $('#'+$num1).val("1");
-          $('#'+$num2).val("1");
-        }
+        arrGrid.push(i);
       }
-    }
-  }
+      console.log(arrGrid);
+      let k=0;
+      while(arrGrid.length>0)
+      {
+
+        // const red =  Math.floor(Math.random() *  255);
+        // const green =  Math.floor(Math.random() *  255);
+        // const blue =  Math.floor(Math.random() *  255);
+        // const randHex = 'rgb('+red+','+green+','+blue+')';
+
+        let $num1 = arrGrid[Math.floor(Math.random()*arrGrid.length)];
+        let $index1 = arrGrid.indexOf($num1);
+        //$('#'+$num1).css('background-color', randHex);
+        //$('#'+$num1).css('background-color', 'transparent');
+        $('#'+$num1).append('<img src="images/grid'+k+'">');
+        $('#'+$num1).val(k);
+        $('#'+$num1).children().css('visibility', 'hidden');
+        arrGrid.splice($index1,1);
+
+        let $num2 = arrGrid[Math.floor(Math.random()*arrGrid.length)];
+        let $index2 = arrGrid.indexOf($num2);
+
+        //$('#'+$num2).css('background-color', randHex);
+        //$('#'+$num2).css('background-color', 'transparent');
+        $('#'+$num2).append('<img src="images/grid'+k+'">');
+        $('#'+$num2).val(k);
+        $('#'+$num2).children().css('visibility', 'hidden');
+        arrGrid.splice($index2,1);
+
+        console.log($num1,$num2);
+        console.log($index1,$index2);
+        console.log(arrGrid);
+        console.log(arrGrid.length);
+        k=k+1;
+      }
+
+
+
+
 };
 
   /*******************************************************************/
@@ -90,11 +107,20 @@ $(window).scroll(function() {
   let k = 0;
   for(let i = 0; i < count; i++)
   {
-    const $square = $('<div>').addClass('squares').val("0").attr('id',k).appendTo('container');
+    const $square = $('<div>').addClass('squares').attr('id',k).appendTo('container');
     k= k+1;
   //  $square.css('scale', '1:1')
   }
   addColor(count);
+
+  $('.squares').on('click', (event) =>{
+    console.log('clicked');
+    $(event.currentTarget).css('background-image', 'none');
+    console.log($(event.currentTarget).children());
+    $(event.currentTarget).children().eq(0).css('visibility', 'visible');
+    
+
+  });
 
   }
   /*******************************************************************/
@@ -108,7 +134,7 @@ $(window).scroll(function() {
 
 
   $('#medium').on('click', (event)=>{
-    generateSquares(18);
+    generateSquares(16);
     $('#level').css('display','none');
     $('#game').css('visibility','visible');
     $('container').css('width','40%');
@@ -121,6 +147,7 @@ $(window).scroll(function() {
     $('#game').css('visibility','visible');
     $('container').css('width','50%');
   });
+
 
 
 
