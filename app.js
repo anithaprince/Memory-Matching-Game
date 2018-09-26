@@ -70,10 +70,9 @@ $(window).scroll(function() {
         let $index1 = arrGrid.indexOf($num1);
         $('#'+$num1).append('<img src="images/grid'+k+'">');
         $('#'+$num1).children().val(k);
-        $('#'+$num1).val('notclicked');
-        console.log($('#'+$num1).val());
-        console.log($('#'+$num1).children().val());
+        $('#'+$num1).val('not clicked');
         $('#'+$num1).children().css('visibility', 'hidden');
+        $('#'+$num1).children().hide();
         arrGrid.splice($index1,1);
 
         //adding same image to two block
@@ -81,10 +80,9 @@ $(window).scroll(function() {
         let $index2 = arrGrid.indexOf($num2);
         $('#'+$num2).append('<img src="images/grid'+k+'">');
         $('#'+$num2).children().val(k);
-        $('#'+$num2).val('notclicked');
-        console.log($('#'+$num2).val());
-        console.log($('#'+$num2).children().val());
+        $('#'+$num2).val('not clicked');
         $('#'+$num2).children().css('visibility', 'hidden');
+        $('#'+$num2).children().hide();
         arrGrid.splice($index2,1);
         k=k+1;
       }
@@ -94,7 +92,7 @@ $(window).scroll(function() {
   const generateSquares = (count) => {
 
     let k = 0;
-    let gridClickCount = 0;
+    let gridClickCount = 1;
     let $grid1;
     let $grid2;
     let $checkArr =[];
@@ -102,7 +100,6 @@ $(window).scroll(function() {
     const checkWin = ()=>{
       let $gridVal1 = $checkArr[0].children().eq(0).val();
       let $gridVal2 = $checkArr[1].children().eq(0).val();
-
       if($gridVal1 == $gridVal2)
       {
           console.log('Matched');
@@ -116,11 +113,17 @@ $(window).scroll(function() {
       }
       else {
         $checkArr[0].children().eq(0).hide('slow');
+        $checkArr[0].children().eq(0).css('visibility','visible');
         $checkArr[1].children().eq(0).hide('slow');
-        $checkArr[0].val('notclicked');
-        $checkArr[1].val('notclicked');
+        $checkArr[1].children().eq(0).css('visibility','visible');
+
+        $checkArr[0].val('');
+        $checkArr[0].val('not clicked');
+        $checkArr[1].val('');
+        $checkArr[1].val('not clicked');
         $checkArr.splice(1,1);
         $checkArr.splice(0,1);
+        console.log($checkArr);
       }
     }
 
@@ -132,24 +135,26 @@ $(window).scroll(function() {
     addColor(count); // adding images to blocks
 
     $('.squares').on('click', (event) =>{
-      gridClickCount+=1;
-      $(event.currentTarget).children().eq(0).css('visibility', 'visible');
-        console.log($(event.currentTarget).val());
-      if(gridClickCount == 1 && $(event.currentTarget).val() == 'notclicked')
+      if(gridClickCount == 1 && $(event.currentTarget).val() === 'not clicked')
       {
+        $(event.currentTarget).children().eq(0).css('visibility','visible');
+        $(event.currentTarget).children().eq(0).show();
+        $(event.currentTarget).val('');
+        $(event.currentTarget).val('clicked');
         $grid1 = $(event.currentTarget);
         $checkArr.push($grid1);
-        $(event.currentTarget).val('clicked');
-        console.log($(event.currentTarget).val());
+        gridClickCount = 2;
       }
-      else if(gridClickCount == 2 && $(event.currentTarget).val() == 'notclicked')
+      else if(gridClickCount == 2 && $(event.currentTarget).val() === 'not clicked')
       {
+        $(event.currentTarget).children().eq(0).css('visibility','visible');
+        $(event.currentTarget).children().eq(0).show();
+        $(event.currentTarget).val('');
+        $(event.currentTarget).val('clicked');
         $grid2=$(event.currentTarget);
         $checkArr.push($grid2);
-        $(event.currentTarget).val('clicked');
-        console.log($(event.currentTarget).val());
         checkWin();
-        gridClickCount = 0;
+        gridClickCount = 1;
       }
     })
 
