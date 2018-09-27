@@ -88,18 +88,16 @@ header{
 }
 #button:active{
   transform: scale(1);
-  background-position: 50px;
+  background-position: 10px;
 
 }
 #button-text {
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 1.5em;
   font-family: 'Paytone One', sans-serif;
   width: 100%;
   text-shadow: 0.15vw 0.15vw rgba(0, 55, 214, 0.67);
   color: #ffde00;
-  text-align: center;
-  font-size: 28px;
 }
 
 #right {
@@ -253,11 +251,12 @@ bounce
 }
 #section1>p {
   width: 20%;
+  font-family: 'Paytone One', sans-serif;
   min-height: 450px;
   margin-left: 40%;
-  font-size: 1.8em;
+  font-size: 1.3em;
   color: #b08736;
-  -webkit-text-stroke: 1px #ffde00;
+  //-webkit-text-stroke: 1px #ffde00;
 }
 
 #arrow1 a span {
@@ -363,7 +362,8 @@ container>h1{
 }
 
 .button {
-  padding: 25px;
+  padding: 30px;
+  padding-top: 5%;
   width: 60%;
   transition: all 0.5s;
   cursor: pointer;
@@ -380,12 +380,12 @@ container>h1{
 }
 .button:active{
   transform: scale(1);
-  background-position: 50px;
+  background-position: 10px;
 
 }
 .button-text {
   text-transform: uppercase;
-  font-size: 3em;
+  font-size: 2em;
   font-family: 'Paytone One', sans-serif;
   width: 100%;
   text-shadow: 0.15vw 0.15vw rgba(0, 55, 214, 0.67);
@@ -512,7 +512,7 @@ container{
   background-color: white;
   padding: 1%;
   min-width: 15%;
-  border: 2px solid yellow;
+  border: 2px solid black;
   border-radius: 15px;
   color: black;
   float: left;
@@ -525,4 +525,10 @@ container{
 #section1 > a{
   text-decoration: none;
   color: black;
+}
+#win > h2{
+  color: white;
+  /* -webkit-text-stroke: 1px black; */
+  font-family: 'Paytone One', sans-serif;
+
 }

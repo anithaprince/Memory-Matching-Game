@@ -94,7 +94,6 @@ $(window).scroll(function() {
   /*******************************************************************/
   //function to create the grids
   const generateSquares = (count) => {
-    $('#clock').innerHTML=0;
     timerStart();
     let k = 0;
     let gridClickCount = 1;
@@ -113,10 +112,11 @@ $(window).scroll(function() {
           matched +=1;
           score = score + 10;
           $("#scoreVal").text(score);
-          $checkArr[0].children().fadeOut(6000);
-          $checkArr[0].children().remove('');
-          $checkArr[1].children().fadeOut(6000);
-          $checkArr[1].children().remove('');
+          $checkArr[0].children().hide('swing');
+
+          // $checkArr[0].children().fadeOut(20000).remove();
+          $checkArr[1].children().hide('swing');
+        //  $checkArr[1].children().fadeOut(20000).remove();
           $checkArr[0].css('background', 'none');
           $checkArr[1].css('background', 'none');
           $checkArr.splice(1,1);
@@ -127,11 +127,9 @@ $(window).scroll(function() {
             $('#win').css('display','block');
             $('#game').css('display','none');
             var timerText = document.getElementById("#clock").innerHTML;
-            console.log(timerText);
-            console.log(score);
-            let scoreString = 'Score: '+score+"\n"+'Time: '+timerText;
-            console.log(scoreString);
+            let scoreString = 'Score: '+score+"  .   "+'Time: '+timerText;
             $('#win').children().eq(1).text(scoreString);
+            timerStop();
           }
 
       }
@@ -229,32 +227,34 @@ $(window).scroll(function() {
 
   $('#playAgain1').on('click', (event)=>{
     $('container').empty();
+    timerStop();
     $('#level').css('display','block');
     $('#win').css('display','none');
     $('#leftside').css('display','none');
     timerStart();
   });
 
-  // var card = document.querySelector('.squares');
-  // card.addEventListener( 'click', function() {
-  //   card.classList.toggle('is-flipped');
-  // });
+
 
 
   function changeValue() {
     document.getElementById("#clock").innerHTML = ++value;
+    console.log(value);
   }
 
   var timerInterval = null;
+  var value = 0;
   function timerStart() {
     clearInterval(timerInterval);
-    $('#clock').innerHTML=0;
+    document.getElementById("#clock").innerHTML='0';
     value = 0;
     timerInterval = setInterval(changeValue, 1000);
   }
 
   var timerStop = function() {
-  clearInterval(timerInterval);
+    document.getElementById("#clock").innerHTML='0';
+    value = 0;
+    clearInterval(timerInterval);
   }
 
 });
