@@ -37,6 +37,10 @@ $(() =>{
         }
       }
     });
+
+    $('#animatedElement').click(function() {
+      $(this).addClass("slideUp");
+    });
 /**********************************************************************/
 
 $(window).scroll(function() {
@@ -177,7 +181,7 @@ $(window).scroll(function() {
     $('#level').css('display','none');
     $('#game').css('display','block');
     $('container').css('width','30%');
-    $('#leftside').css('width','30%');
+    $('#leftside').css('margin-left','15%');
     $('#leftside').css('display','block');
 
   });
@@ -188,7 +192,7 @@ $(window).scroll(function() {
     $('#level').css('display','none');
     $('#game').css('display','block');
     $('container').css('width','40%');
-    $('#leftside').css('width','25%');
+    $('#leftside').css('margin-left','10%');
     $('#leftside').css('display','block');
 
 
@@ -199,7 +203,7 @@ $(window).scroll(function() {
     $('#level').css('display','none');
     $('#game').css('display','block');
     $('container').css('width','46%');
-    $('#leftside').css('width','20%');
+    $('#leftside').css('margin-left','5%');
     $('#leftside').css('display','block');
   });
 

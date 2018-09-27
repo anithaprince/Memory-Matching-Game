@@ -337,6 +337,7 @@ outline: none;
   min-height: 500px;
   margin: auto;
   margin-top: 5%;
+  border: 1px solid yellow;
   border-radius: 5%;
   background: rgba(183,222,237,1);
   background: -moz-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
@@ -409,6 +410,7 @@ container{
   flex-wrap:wrap;
   flex-direction: row;
   background: rgba(255, 255, 255, 0.3);
+  border: 1px solid yellow;
   border-radius: 25px;
   padding-left: 3%;
   perspective: 600px;
@@ -416,14 +418,20 @@ container{
 
 
 #leftside{
-  margin-left: 5%;
+  width: 20%;
   display: block;
-  min-height: 750px;
-  /*background: rgba(255, 255, 255, 0.3);
-  border-radius: 25px;*/
+  min-height: 500px;
+  background: rgba(61, 173, 84, 0.8);
+  border: 1px solid yellow;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  margin-top: 5%;
   float: left;
 }
-
+#leftside>.button>.button-text,
+#Instructions > a > span{
+  font-size: 1.5em;
+}
 .squares{
   background-image: url(images/grid.png);
   background-position: center;
@@ -454,10 +462,10 @@ container{
 .squares>img{
   width:90%;
   padding: 5px;
-  border: solid 1px #ffffff;
-  /* -moz-box-shadow: 1px 1px 5px #999;
- -webkit-box-shadow: 1px 1px 5px #999;
-  box-shadow: 1px 1px 5px #999; */
+  border: solid 5px #fff;
+  -moz-box-shadow: 1px 1px 5px #fff;
+ -webkit-box-shadow: 1px 1px 5px #FFF;
+  box-shadow: 1px 1px 5px #FFF;
 }
 
 #win{
@@ -470,7 +478,7 @@ container{
 }
 
 #score{
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,155,227,1);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   width: 100%;
@@ -481,6 +489,7 @@ container{
 #score h1,
 #time h1{
   font-size: 1.5em;
+  font-weight: 100;
   color: white;
   line-height: 1.8em;
   margin: 0;
@@ -489,7 +498,7 @@ container{
 }
 
 #time{
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,155,227,0.5);
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   width: 100%;
@@ -500,14 +509,15 @@ container{
 .block {
   font-family: 'Paytone One', sans-serif;
   display: inline;
-  background-color: blue;
-  padding: 5px;
+  background-color: white;
+  padding: 1%;
+  min-width: 15%;
   border: 2px solid yellow;
   border-radius: 15px;
-  color: white;
+  color: black;
   float: left;
-  font-size: 1.5em;
+  font-size: 1em;
   list-style: none;
-  margin-left: 45%;
+  margin-left: 35%;
   text-align: center;
 }

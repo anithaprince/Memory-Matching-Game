@@ -12,53 +12,48 @@
 
 
   <body>
-
-  <script>
-  	$('#animatedElement').click(function() {
-  		$(this).addClass("slideUp");
-  	});
-  </script>
-
+  <!-- **************************************************************** -->
   <!-- header section -->
+
     <header id="top">
+      <!-- left side heading and button in Jumbotron -->
       <div id='left'>
         <h1>Memory Matching Adventure</h1>
         <div id="button">
           <a href="#section2"><span id="button-text">PLAY GAME</span></a>
         </div>
       </div>
-
+      <!-- banner image section inn Jumbotron -->
       <div id='right'>
         <div id='#sliderImg' class="bounce">
           <img src="images/right_main.png"/>
         </div>
       </div>
-
+      <!-- Scroll down arrow -->
       <a href="#section1">Scroll Down</a>
       <section id="arrow" class="demo">
         <a href="#section1"><span></span></a>
       </section>
-
-
     </header>
-
+  <!-- **************************************************************** -->
   <!-- Instructions section -->
 
     <div class="main" id="section1">
       <h1>How to Play</h1>
       <p>Match all the tiles in as few moves as you can. Be sure to challenge yourself with a higher level if it's too easy!<br />
       Playing is very simple - you turn over one tile and then try to find a matching tile.</p>
-
+      <!-- Scroll down arrow -->
+      <a href="#section1">Scroll Down</a>
       <section id="arrow1" class="demo">
         <a href="#section2"><span></span></a>
       </section>
     </div>
 
+  <!-- **************************************************************** -->
   <!-- Play Game section -->
 
     <div class="main" id="section2">
-
-
+        <!-- select difficulty section/overlay -->
       <div id="level">
         <h1>Select a Difficulty Level</h1>
         <div class="button" id="easy">
@@ -73,66 +68,68 @@
           <span class="button-text">Hard</span>
         </div>
 
+        <div class="button" id="">
+          <span class="button-text">Challenge</span>
+        </div>
       </div>
-
-
+      <!-- ***************************************** -->
+        <!-- actual game section/overlay -->
       <div id="game">
-
+        <!-- Section to display insrtuctions, score and time -->
         <div id="leftside">
-          <div class="button" id="Instructions">
-            <a href="#section1"><span class="button-text">Instructions</span></a>
-          </div>
-          <div class="button" id="">
-            <span class="button-text">Daily challenge</span>
-          </div>
 
-          <div class="button" id="playAgain1">
-            <span class="button-text">Start Over</span>
-          </div>
+            <!-- Button for Instructions -->
+            <div class="button" id="Instructions">
+              <a href="#section1"><span class="button-text">Instructions</span></a>
+            </div>
 
+            <!-- Button to restart game -->
+            <div class="button" id="playAgain1">
+              <span class="button-text">Start Over</span>
+            </div>
 
-          <div id="scoreContainer">
-            <div id="score">
-              <div id="p1score">
-                <h1>Score</h1>
-                <ul>
-                  <li id="p120" class="block" value="20">20</li>
-                </ul>
+            <!-- Score Board section -->
+            <div id="scoreContainer">
+              <!-- Score display area -->
+                <div id="score">
+                  <div id="p1score">
+                    <h1>Score</h1>
+                    <ul>
+                      <li id="p120" class="block" value="20">0</li>
+                    </ul>
+                  </div>
+                </div>
+              <!-- Time display area -->
+                <div id="time">
+                  <div id="p2score">
+                   <h1>Time Left</h1>
+                   <ul>
+                     <li id="p220" class="block" value="20">0</li>
+                   </ul>
+                 </div>
+                </div>
               </div>
             </div>
-
-            <div id="time">
-              <div id="p2score">
-               <h1>Time Left</h1>
-               <ul>
-                 <li id="p220" class="block" value="20">20</li>
-               </ul>
-             </div>
-            </div>
-          </div>
-        </div>
-
-        <container>
-          <h1>Play Game</h1>
-        </container>
-
+            <!-- section to add grids/boxes -->
+            <container>
+              <h1>Play Game</h1>
+            </container>
       </div>
-
+      <!-- ***************************************** -->
+      <!-- Overlay area to display win message -->
       <div id="win">
         <h1>Congratulation! You won</h1>
         <div class="button" id="playAgain">
           <span class="button-text">Play Again</span>
         </div>
       </div>
-
-
+      <!-- Scroll up arrow -->
       <a href="#top">Back to top</a>
       <section id="arrow2" class="demo">
         <a href="#top"><span></span></a>
       </section>
-
     </div>
-
+    <!-- **************************************************************** -->
 
   </body>
 </html>
