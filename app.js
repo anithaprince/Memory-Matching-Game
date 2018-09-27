@@ -113,10 +113,9 @@ $(window).scroll(function() {
           score = score + 10;
           $("#scoreVal").text(score);
           $checkArr[0].children().hide('swing');
-
           // $checkArr[0].children().fadeOut(20000).remove();
           $checkArr[1].children().hide('swing');
-        //  $checkArr[1].children().fadeOut(20000).remove();
+          //  $checkArr[1].children().fadeOut(20000).remove();
           $checkArr[0].css('background', 'none');
           $checkArr[1].css('background', 'none');
           $checkArr.splice(1,1);
