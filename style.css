@@ -521,3 +521,8 @@ container{
   margin-left: 35%;
   text-align: center;
 }
+
+#section1 > a{
+  text-decoration: none;
+  color: black;
+}

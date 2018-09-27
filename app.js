@@ -56,7 +56,7 @@ $(window).scroll(function() {
 
   /*******************************************************************/
   // This is th efunction to add image into each grid blocks genertaed
-
+  let score = 0;
   const addColor = (count) =>{
     //Initializing Variables
     let arrGrid = [];
@@ -94,9 +94,12 @@ $(window).scroll(function() {
   /*******************************************************************/
   //function to create the grids
   const generateSquares = (count) => {
-
+    $('#clock').innerHTML=0;
+    timerStart();
     let k = 0;
     let gridClickCount = 1;
+    $("#scoreVal").text('0');
+    let score = 0;
     let $grid1;
     let $grid2;
     let $checkArr =[];
@@ -108,6 +111,8 @@ $(window).scroll(function() {
       {
           console.log('Matched');
           matched +=1;
+          score = score + 10;
+          $("#scoreVal").text(score);
           $checkArr[0].children().fadeOut(6000);
           $checkArr[0].children().remove('');
           $checkArr[1].children().fadeOut(6000);
@@ -121,6 +126,12 @@ $(window).scroll(function() {
             console.log('Game Over');
             $('#win').css('display','block');
             $('#game').css('display','none');
+            var timerText = document.getElementById("#clock").innerHTML;
+            console.log(timerText);
+            console.log(score);
+            let scoreString = 'Score: '+score+"\n"+'Time: '+timerText;
+            console.log(scoreString);
+            $('#win').children().eq(1).text(scoreString);
           }
 
       }
@@ -221,12 +232,29 @@ $(window).scroll(function() {
     $('#level').css('display','block');
     $('#win').css('display','none');
     $('#leftside').css('display','none');
-
+    timerStart();
   });
 
-  var card = document.querySelector('.squares');
-  card.addEventListener( 'click', function() {
-    card.classList.toggle('is-flipped');
-  });
+  // var card = document.querySelector('.squares');
+  // card.addEventListener( 'click', function() {
+  //   card.classList.toggle('is-flipped');
+  // });
+
+
+  function changeValue() {
+    document.getElementById("#clock").innerHTML = ++value;
+  }
+
+  var timerInterval = null;
+  function timerStart() {
+    clearInterval(timerInterval);
+    $('#clock').innerHTML=0;
+    value = 0;
+    timerInterval = setInterval(changeValue, 1000);
+  }
+
+  var timerStop = function() {
+  clearInterval(timerInterval);
+  }
 
 });
