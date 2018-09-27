@@ -440,6 +440,7 @@ container{
   transform-origin: center right;
   transition: transform 2s;
   backface-visibility: hidden;
+
 }
 .squares:hover{
   /* transform: rotate(25deg);
@@ -449,16 +450,9 @@ container{
 }
 
 .squares:active{
-  transform: translateX(-50%) rotateY(-360deg);
+  transform: translateX(-100%) rotateY(-360deg);
 }
-.squares>img{
-  width:90%;
-  padding: 5px;
-  border: solid 1px #ffffff;
-  /* -moz-box-shadow: 1px 1px 5px #999;
- -webkit-box-shadow: 1px 1px 5px #999;
-  box-shadow: 1px 1px 5px #999; */
-}
+
 
 #win{
   display: none;

@@ -104,8 +104,10 @@ $(window).scroll(function() {
       {
           console.log('Matched');
           matched +=1;
-          $checkArr[0].children().remove('slow');
-          $checkArr[1].children().remove('slow');
+          $checkArr[0].children().fadeOut(6000);
+          $checkArr[0].children().remove('');
+          $checkArr[1].children().fadeOut(6000);
+          $checkArr[1].children().remove('');
           $checkArr[0].css('background', 'none');
           $checkArr[1].css('background', 'none');
           $checkArr.splice(1,1);
@@ -119,9 +121,11 @@ $(window).scroll(function() {
 
       }
       else {
-        $checkArr[0].children().eq(0).hide('slow');
+        //$checkArr[0].children().eq(0).hide('slow');
+        $checkArr[0].children().fadeOut("slow");
         $checkArr[0].children().eq(0).css('visibility','visible');
-        $checkArr[1].children().eq(0).hide('slow');
+        //$checkArr[1].children().eq(0).hide('slow');
+        $checkArr[1].children().fadeOut("slow");
         $checkArr[1].children().eq(0).css('visibility','visible');
 
         $checkArr[0].val('');
@@ -194,7 +198,7 @@ $(window).scroll(function() {
     generateSquares(20);
     $('#level').css('display','none');
     $('#game').css('display','block');
-    $('container').css('width','47%');
+    $('container').css('width','46%');
     $('#leftside').css('width','20%');
     $('#leftside').css('display','block');
   });
@@ -216,5 +220,9 @@ $(window).scroll(function() {
 
   });
 
+  var card = document.querySelector('.squares');
+  card.addEventListener( 'click', function() {
+    card.classList.toggle('is-flipped');
+  });
 
 });
