@@ -418,8 +418,8 @@ container{
   margin-left: 5%;
   display: block;
   min-height: 750px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 25px;
+  /*background: rgba(255, 255, 255, 0.3);
+  border-radius: 25px;*/
   float: left;
 }
 
@@ -438,9 +438,59 @@ transform: matrix(1, 0, 0, 1, 0, 0);
 
 }
 .squares:hover{
-  /* transform: rotate(180deg);
-  transition-duration: 2s; */
+  transform: rotate(25deg);
+  transform: perspective(600px;) rotateY(0deg);
+  transition: .5s linear 0s;
+  transition-duration: 2s;
 }
 #win{
   display: none;
+}
+
+#scoreContainer{
+  width: 80%;
+  margin: auto;
+}
+
+#score{
+  background-color: rgba(0,0,0,0.8);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  width: 100%;
+  height: 110px;
+  margin: 0 auto;
+  font-family: 'Paytone One', sans-serif;
+}
+#score h1,
+#time h1{
+  font-size: 1.5em;
+  color: white;
+  line-height: 1.8em;
+  margin: 0;
+  font-family: 'Paytone One', sans-serif;
+
+}
+
+#time{
+  background-color: rgba(0,0,0,0.4);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: 100%;
+  height: 110px;
+  margin: 0 auto;
+}
+
+.block {
+  font-family: 'Paytone One', sans-serif;
+  display: inline;
+  background-color: blue;
+  padding: 5px;
+  border: 2px solid yellow;
+  border-radius: 15px;
+  color: white;
+  float: left;
+  font-size: 1.5em;
+  list-style: none;
+  margin-left: 45%;
+  text-align: center;
 }
