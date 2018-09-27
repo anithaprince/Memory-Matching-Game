@@ -96,19 +96,26 @@ $(window).scroll(function() {
     let $grid1;
     let $grid2;
     let $checkArr =[];
-
-    const checkWin = ()=>{
+    let matched=0;
+    const checkWin = (count)=>{
       let $gridVal1 = $checkArr[0].children().eq(0).val();
       let $gridVal2 = $checkArr[1].children().eq(0).val();
       if($gridVal1 == $gridVal2)
       {
           console.log('Matched');
+          matched +=1;
           $checkArr[0].children().remove('slow');
           $checkArr[1].children().remove('slow');
           $checkArr[0].css('background', 'none');
           $checkArr[1].css('background', 'none');
           $checkArr.splice(1,1);
           $checkArr.splice(0,1);
+          if(matched == (count/2))
+          {
+            console.log('Game Over');
+            $('#win').css('display','block');
+            $('#game').css('display','none');
+          }
 
       }
       else {
@@ -153,7 +160,7 @@ $(window).scroll(function() {
         $(event.currentTarget).val('clicked');
         $grid2=$(event.currentTarget);
         $checkArr.push($grid2);
-        checkWin();
+        checkWin(count);
         gridClickCount = 1;
       }
     })
@@ -164,8 +171,10 @@ $(window).scroll(function() {
   $('#easy').on('click', (event)=>{
     generateSquares(12);
     $('#level').css('display','none');
-    $('#game').css('visibility','visible');
+    $('#game').css('display','block');
     $('container').css('width','30%');
+    $('#leftside').css('width','30%');
+    $('#leftside').css('display','block');
 
   });
 
@@ -173,19 +182,39 @@ $(window).scroll(function() {
   $('#medium').on('click', (event)=>{
     generateSquares(16);
     $('#level').css('display','none');
-    $('#game').css('visibility','visible');
+    $('#game').css('display','block');
     $('container').css('width','40%');
+    $('#leftside').css('width','25%');
+    $('#leftside').css('display','block');
+
 
   });
 
   $('#hard').on('click', (event)=>{
     generateSquares(20);
     $('#level').css('display','none');
-    $('#game').css('visibility','visible');
-    $('container').css('width','50%');
+    $('#game').css('display','block');
+    $('container').css('width','47%');
+    $('#leftside').css('width','20%');
+    $('#leftside').css('display','block');
   });
 
+  $('#playAgain').on('click', (event)=>{
+    $('container').empty();
+    $('<h1>').text('Play Game').appendTo('container');
+    $('#level').css('display','block');
+    $('#win').css('display','none');
+    $('#leftside').css('display','none');
 
+  });
+
+  $('#playAgain1').on('click', (event)=>{
+    $('container').empty();
+    $('#level').css('display','block');
+    $('#win').css('display','none');
+    $('#leftside').css('display','none');
+
+  });
 
 
 });
