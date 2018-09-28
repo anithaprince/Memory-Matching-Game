@@ -526,9 +526,21 @@ container{
   text-decoration: none;
   color: black;
 }
+#section1 > h1{
+  font-size: 3em;
+  margin: auto;
+  padding-top: 5%;
+}
 #win > h2{
   color: white;
   /* -webkit-text-stroke: 1px black; */
   font-family: 'Paytone One', sans-serif;
+}
+
+#challengeInstruction{
+  font-size: 2em;
+  padding: 0 5% 0 5%;
+  color: darkblue;
+  display: none;
 
 }

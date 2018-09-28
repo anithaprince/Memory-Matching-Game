@@ -55,8 +55,13 @@ $(window).scroll(function() {
 	});
 
   /*******************************************************************/
-  // This is th efunction to add image into each grid blocks genertaed
+
+  //Initializing Global Variables
   let score = 0;
+  let isChallenge = false;
+
+  // This is the function to add image into each grid blocks generated
+
   const addColor = (count) =>{
     //Initializing Variables
     let arrGrid = [];
@@ -90,19 +95,22 @@ $(window).scroll(function() {
         arrGrid.splice($index2,1);
         k=k+1;
       }
-};
+  };
+
   /*******************************************************************/
   //function to create the grids
-  const generateSquares = (count) => {
-    timerStart();
+  const generateSquares = (count,isChallenge) => {
+    $("#scoreVal").text('0'); //setting score to 0
+
+    //Initializing Variables
     let k = 0;
     let gridClickCount = 1;
-    $("#scoreVal").text('0');
     let score = 0;
     let $grid1;
     let $grid2;
     let $checkArr =[];
     let matched=0;
+
     const checkWin = (count)=>{
       let $gridVal1 = $checkArr[0].children().eq(0).val();
       let $gridVal2 = $checkArr[1].children().eq(0).val();
@@ -113,9 +121,7 @@ $(window).scroll(function() {
           score = score + 10;
           $("#scoreVal").text(score);
           $checkArr[0].children().hide('swing');
-          // $checkArr[0].children().fadeOut(20000).remove();
           $checkArr[1].children().hide('swing');
-          //  $checkArr[1].children().fadeOut(20000).remove();
           $checkArr[0].css('background', 'none');
           $checkArr[1].css('background', 'none');
           $checkArr.splice(1,1);
@@ -126,58 +132,97 @@ $(window).scroll(function() {
             $('#win').css('display','block');
             $('#game').css('display','none');
             var timerText = document.getElementById("#clock").innerHTML;
-            let scoreString = 'Score: '+score+"  .   "+'Time: '+timerText;
+            let scoreString = 'Score: '+score+"  ,   "+'Time: '+timerText;
             $('#win').children().eq(1).text(scoreString);
             timerStop();
           }
-
       }
       else {
-        //$checkArr[0].children().eq(0).hide('slow');
         $checkArr[0].children().fadeOut("slow");
         $checkArr[0].children().eq(0).css('visibility','visible');
-        //$checkArr[1].children().eq(0).hide('slow');
         $checkArr[1].children().fadeOut("slow");
         $checkArr[1].children().eq(0).css('visibility','visible');
-
         $checkArr[0].val('');
         $checkArr[0].val('not clicked');
         $checkArr[1].val('');
         $checkArr[1].val('not clicked');
         $checkArr.splice(1,1);
         $checkArr.splice(0,1);
-        console.log($checkArr);
       }
     }
-
+    //-------------- Generating Grids---------------------//
+    $('<h1>').text('Play Game').appendTo('container');
     for(let i = 0; i < count; i++)
     {
       const $square = $('<div>').addClass('squares').attr('id',k).appendTo('container');
       k= k+1;
     }
+    //-------------- Adding Images---------------------//
     addColor(count); // adding images to blocks
+    timerStart(); //starting timer from 0
 
+    //-------------- Define what to do on clicking images-----------------//
     $('.squares').on('click', (event) =>{
-      if(gridClickCount == 1 && $(event.currentTarget).val() === 'not clicked')
+
+      if(isChallenge==true)
       {
-        $(event.currentTarget).children().eq(0).css('visibility','visible');
-        $(event.currentTarget).children().eq(0).show();
-        $(event.currentTarget).val('');
-        $(event.currentTarget).val('clicked');
-        $grid1 = $(event.currentTarget);
-        $checkArr.push($grid1);
-        gridClickCount = 2;
+        let currentTime = document.getElementById("#clock").innerHTML;
+        if(currentTime >= 60){
+          console.log('failed');
+          $('#win').children().eq(0).text("You lost! Better Luck next time");
+          $('#win').css('display','block');
+          $('#game').css('display','none');
+          var timerText = document.getElementById("#clock").innerHTML;
+          let scoreString = 'Score: '+score+"  ,   "+'Time: '+timerText;
+          $('#win').children().eq(1).text(scoreString);
+          timerStop();
+        }
+        else {
+          if(gridClickCount == 1 && $(event.currentTarget).val() === 'not clicked')
+          {
+            $(event.currentTarget).children().eq(0).css('visibility','visible');
+            $(event.currentTarget).children().eq(0).show();
+            $(event.currentTarget).val('');
+            $(event.currentTarget).val('clicked');
+            $grid1 = $(event.currentTarget);
+            $checkArr.push($grid1);
+            gridClickCount = 2;
+          }
+          else if(gridClickCount == 2 && $(event.currentTarget).val() === 'not clicked')
+          {
+            $(event.currentTarget).children().eq(0).css('visibility','visible');
+            $(event.currentTarget).children().eq(0).show();
+            $(event.currentTarget).val('');
+            $(event.currentTarget).val('clicked');
+            $grid2=$(event.currentTarget);
+            $checkArr.push($grid2);
+            checkWin(count);
+            gridClickCount = 1;
+          }
+        }
       }
-      else if(gridClickCount == 2 && $(event.currentTarget).val() === 'not clicked')
-      {
-        $(event.currentTarget).children().eq(0).css('visibility','visible');
-        $(event.currentTarget).children().eq(0).show();
-        $(event.currentTarget).val('');
-        $(event.currentTarget).val('clicked');
-        $grid2=$(event.currentTarget);
-        $checkArr.push($grid2);
-        checkWin(count);
-        gridClickCount = 1;
+      else {
+        if(gridClickCount == 1 && $(event.currentTarget).val() === 'not clicked')
+        {
+          $(event.currentTarget).children().eq(0).css('visibility','visible');
+          $(event.currentTarget).children().eq(0).show();
+          $(event.currentTarget).val('');
+          $(event.currentTarget).val('clicked');
+          $grid1 = $(event.currentTarget);
+          $checkArr.push($grid1);
+          gridClickCount = 2;
+        }
+        else if(gridClickCount == 2 && $(event.currentTarget).val() === 'not clicked')
+        {
+          $(event.currentTarget).children().eq(0).css('visibility','visible');
+          $(event.currentTarget).children().eq(0).show();
+          $(event.currentTarget).val('');
+          $(event.currentTarget).val('clicked');
+          $grid2=$(event.currentTarget);
+          $checkArr.push($grid2);
+          checkWin(count);
+          gridClickCount = 1;
+        }
       }
     })
 
@@ -185,29 +230,28 @@ $(window).scroll(function() {
 
   /*******************************************************************/
   $('#easy').on('click', (event)=>{
-    generateSquares(12);
+    isChallenge = false;
+    generateSquares(12,isChallenge);
     $('#level').css('display','none');
     $('#game').css('display','block');
     $('container').css('width','30%');
     $('#leftside').css('margin-left','15%');
     $('#leftside').css('display','block');
-
   });
 
-
   $('#medium').on('click', (event)=>{
-    generateSquares(16);
+    isChallenge = false;
+    generateSquares(16,isChallenge);
     $('#level').css('display','none');
     $('#game').css('display','block');
     $('container').css('width','40%');
     $('#leftside').css('margin-left','10%');
     $('#leftside').css('display','block');
-
-
   });
 
   $('#hard').on('click', (event)=>{
-    generateSquares(20);
+    isChallenge = false;
+    generateSquares(20,isChallenge);
     $('#level').css('display','none');
     $('#game').css('display','block');
     $('container').css('width','46%');
@@ -215,13 +259,24 @@ $(window).scroll(function() {
     $('#leftside').css('display','block');
   });
 
+  $('#challenge').on('click', (event)=>{
+    isChallenge = true;
+    generateSquares(20,isChallenge);
+    $('#level').css('display','none');
+    $('#game').css('display','block');
+    $('container').css('width','46%');
+    $('#leftside').css('margin-left','5%');
+    $('#leftside').css('display','block');
+    $('#challengeInstruction').css('display','block');
+  });
+
   $('#playAgain').on('click', (event)=>{
     $('container').empty();
-    $('<h1>').text('Play Game').appendTo('container');
+    timerStop();
     $('#level').css('display','block');
     $('#win').css('display','none');
     $('#leftside').css('display','none');
-
+    $('#challengeInstruction').css('display','none');
   });
 
   $('#playAgain1').on('click', (event)=>{
@@ -230,15 +285,16 @@ $(window).scroll(function() {
     $('#level').css('display','block');
     $('#win').css('display','none');
     $('#leftside').css('display','none');
+    $('#challengeInstruction').css('display','none');
     timerStart();
   });
 
 
-
+/*********************function for timer*******************************/
 
   function changeValue() {
     document.getElementById("#clock").innerHTML = ++value;
-    console.log(value);
+  //  console.log(value);
   }
 
   var timerInterval = null;
@@ -253,7 +309,6 @@ $(window).scroll(function() {
   var timerStop = function() {
     document.getElementById("#clock").innerHTML='0';
     value = 0;
-    clearInterval(timerInterval);
   }
 
 });
