@@ -52,7 +52,7 @@ $(window).scroll(function() {
 				$(this).addClass("bounce");
 			}
 		});
-	});
+});
 
   /*******************************************************************/
 
@@ -110,7 +110,7 @@ $(window).scroll(function() {
     let $grid2;
     let $checkArr =[];
     let matched=0;
-
+    //----------function to check if crad matched and all tiles are clear-----------//
     const checkWin = (count)=>{
       let $gridVal1 = $checkArr[0].children().eq(0).val();
       let $gridVal2 = $checkArr[1].children().eq(0).val();
@@ -131,6 +131,7 @@ $(window).scroll(function() {
             console.log('Game Over');
             $('#win').css('display','block');
             $('#game').css('display','none');
+            $('#win').children().eq(0).text("Congratulation! You won");
             var timerText = document.getElementById("#clock").innerHTML;
             let scoreString = 'Score: '+score+"  ,   "+'Time: '+timerText;
             $('#win').children().eq(1).text(scoreString);
@@ -167,7 +168,7 @@ $(window).scroll(function() {
     $('.squares').on('click', (event) =>{
       var audio = $("#mysoundclip")[0];
       audio.play();
-      if(isChallenge==true)
+      if(isChallenge==true) // code to check if its challenge mode
       {
         let currentTime = document.getElementById("#clock").innerHTML;
         if(currentTime >= 60){
@@ -204,7 +205,7 @@ $(window).scroll(function() {
           }
         }
       }
-      else {
+      else { // code of other mode game
         if(gridClickCount == 1 && $(event.currentTarget).val() === 'not clicked')
         {
           $(event.currentTarget).children().eq(0).css('visibility','visible');
@@ -233,6 +234,7 @@ $(window).scroll(function() {
 }
 
   /*******************************************************************/
+  // call to action for all buttons on the page
   $('#easy').on('click', (event)=>{
     isChallenge = false;
     generateSquares(12,isChallenge);
