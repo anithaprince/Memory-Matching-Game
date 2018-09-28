@@ -234,7 +234,7 @@ $(window).scroll(function() {
     generateSquares(12,isChallenge);
     $('#level').css('display','none');
     $('#game').css('display','block');
-    $('container').css('width','30%');
+    $('container').css('width','33%');
     $('#leftside').css('margin-left','15%');
     $('#leftside').css('display','block');
   });
@@ -244,7 +244,7 @@ $(window).scroll(function() {
     generateSquares(16,isChallenge);
     $('#level').css('display','none');
     $('#game').css('display','block');
-    $('container').css('width','40%');
+    $('container').css('width','45%');
     $('#leftside').css('margin-left','10%');
     $('#leftside').css('display','block');
   });

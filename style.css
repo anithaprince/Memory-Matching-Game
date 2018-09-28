@@ -332,13 +332,14 @@ outline: none;
 
 /**********************Game Section********************/
 #level, #win{
-  width:25%;
+  width:30%;
   min-height: 500px;
   margin: auto;
   margin-top: 5%;
   border: 1px solid yellow;
   border-radius: 5%;
   background: rgba(183,222,237,1);
+  padding-bottom: 3%;
   background: -moz-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(183,222,237,1)), color-stop(15%, rgba(113,206,239,1)), color-stop(69%, rgba(33,180,226,1)), color-stop(100%, rgba(183,222,237,1)));
   background: -webkit-linear-gradient(top, rgba(183,222,237,1) 0%, rgba(113,206,239,1) 15%, rgba(33,180,226,1) 69%, rgba(183,222,237,1) 100%);
@@ -352,7 +353,7 @@ outline: none;
   width: 100%;
   margin-top: 5%;
   margin-bottom: 10%;
-  font-size: 4em;
+  font-size: 3.5em;
   color: #ffde00;
   -webkit-text-stroke: 1px #b08736;
 }
@@ -363,18 +364,18 @@ container>h1{
 
 .button {
   padding: 30px;
-  padding-top: 5%;
   width: 60%;
   transition: all 0.5s;
-  cursor: pointer;
-  margin-left: 15%;
-  margin-top: 2%;
+  margin:0 auto;
   background:url(images/button.png) no-repeat;
   background-size:contain;
   cursor:pointer;
-
 }
-
+#leftside>.button{
+  padding: 15%;
+  padding-top: 7%;
+  margin-top: 5%;
+}
 .button:hover{
   transform: scale(1.1);
 }
@@ -385,13 +386,10 @@ container>h1{
 }
 .button-text {
   text-transform: uppercase;
-  font-size: 2em;
+  font-size: 1.5em;
   font-family: 'Paytone One', sans-serif;
-  width: 100%;
   text-shadow: 0.15vw 0.15vw rgba(0, 55, 214, 0.67);
   color: #ffde00;
-  text-align: center;
-  font-size: 28px;
 }
 
 #game{
@@ -543,4 +541,92 @@ container{
   color: darkblue;
   display: none;
 
+}
+
+/*********************Adding media query for mobile devices***********************/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+{
+   #top{
+    width: 99%;
+    min-height: 400px;
+  }
+  #left
+  {
+    width: 25%;
+    float: left;
+    margin: 2em 0 0 3em;
+  }
+  #left > h1 {
+      font-size: 4em;
+  }
+  #right {
+    width: 60%;
+    float: left;
+    margin: 2em 0 0 3em;
+  }
+  #button {
+      padding: 25px;
+      padding-top: 5px;
+  }
+  #button-text {
+      font-size: 1.5em;
+  }
+  #arrow,#arrow1,#arrow2, #top > a,#section1 > a, #section2 > a{
+    display: none;
+  }
+
+  #section1>p {
+    font-size: 1em;
+  }
+  #section1 > h1 {
+    font-size: 2em;
+    padding-top: 8%;
+  }
+  .button {
+    padding: 35px;
+  }
+  .button-text {
+    font-size: 1em;
+  }
+  #level>h1, container>h1, #win>h1 {
+    font-size: 2em;
+  }
+  #level, #win
+  {
+    width: 50%;
+  }
+  .squares {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+  }
+  #section2 {
+    min-height: 700px;
+  }
+
+  container{
+    width: 50% !important;
+    padding-left: 7%;
+        margin-top: 5%;
+  }
+  #leftside{
+    margin-left: 5% !important;
+  }
+  #Instructions > a > span, #playAgain1 > span{
+    font-size: 1em;
+  }
+  #leftside>.button>.button-text, #Instructions > a > span {
+    font-size: 1em!important;
+}
+#leftside>.button{
+  padding: 35px;
+  padding-top: 7%;
+}
+#score h1, #time h1 {
+  font-size: 1em;
+  }
+#challengeInstruction {
+  font-size: 1em;
+}
 }
