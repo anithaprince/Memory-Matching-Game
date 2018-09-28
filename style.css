@@ -542,9 +542,95 @@ container{
   display: none;
 
 }
+/*********************Adding media query for mobile devices***********************/
+@media only screen and (min-device-width : 650px) and (max-device-width : 1024px)
+{
+  #top{
+   width: 99%;
+   min-height: 400px;
+ }
+ #left
+ {
+   width: 25%;
+   float: left;
+   margin: 2em 0 0 3em;
+ }
+ #left > h1 {
+     font-size: 4em;
+ }
+ #right {
+   width: 60%;
+   float: left;
+   margin: 2em 0 0 3em;
+ }
+ #button {
+     padding: 25px;
+     padding-top: 5px;
+ }
+ #button-text {
+     font-size: 1.5em;
+ }
+ #section1>p {
+   font-size: 1em;
+ }
+ #section1 > h1 {
+   font-size: 2em;
+   padding-top: 8%;
+ }
+ .button {
+   padding: 35px;
+ }
+ .button-text {
+   font-size: 1em;
+ }
+ #level>h1, container>h1, #win>h1 {
+   font-size: 2em;
+ }
+ #level, #win
+ {
+   width: 50%;
+ }
+ .squares {
+   background-size: contain;
+   background-repeat: no-repeat;
+   width: 100px;
+   height: 100px;
+ }
+ #section2 {
+   min-height: 700px;
+ }
+
+ container{
+   width: 50% !important;
+   padding-left: 7%;
+   margin-top: 5%;
+ }
+ #leftside{
+   margin-left: 5% !important;
+ }
+ #Instructions > a > span, #playAgain1 > span{
+   font-size: 1em;
+ }
+ #leftside>.button>.button-text, #Instructions > a > span {
+   font-size: 1em!important;
+}
+#leftside>.button{
+ padding: 35px;
+ padding-top: 7%;
+}
+#score h1, #time h1 {
+ font-size: 1em;
+ }
+#challengeInstruction {
+ font-size: 1em;
+}
+#Instructions{
+  top: 5%;
+}
+}
 
 /*********************Adding media query for mobile devices***********************/
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+@media only screen and (min-device-width : 320px) and (max-device-width : 600px)
 {
    #top{
     width: 99%;
@@ -608,7 +694,7 @@ container{
   container{
     width: 50% !important;
     padding-left: 7%;
-        margin-top: 5%;
+    margin-top: 5%;
   }
   #leftside{
     margin-left: 5% !important;
@@ -619,14 +705,14 @@ container{
   #leftside>.button>.button-text, #Instructions > a > span {
     font-size: 1em!important;
 }
-#leftside>.button{
-  padding: 35px;
-  padding-top: 7%;
-}
-#score h1, #time h1 {
-  font-size: 1em;
+  #leftside>.button{
+    padding: 35px;
+    padding-top: 7%;
   }
-#challengeInstruction {
-  font-size: 1em;
-}
+  #score h1, #time h1 {
+    font-size: 1em;
+    }
+  #challengeInstruction {
+    font-size: 1em;
+  }
 }
