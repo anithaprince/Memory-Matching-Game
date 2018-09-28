@@ -423,7 +423,7 @@ container{
   border: 1px solid yellow;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  margin-top: 5%;
+  margin-top: 3%;
   float: left;
 }
 #leftside>.button>.button-text,

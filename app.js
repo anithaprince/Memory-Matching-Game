@@ -136,6 +136,8 @@ $(window).scroll(function() {
             $('#win').children().eq(1).text(scoreString);
             timerStop();
           }
+          var audio1 = $("#mysoundclip1")[0];
+          audio1.play();
       }
       else {
         $checkArr[0].children().fadeOut("slow");
@@ -163,7 +165,8 @@ $(window).scroll(function() {
 
     //-------------- Define what to do on clicking images-----------------//
     $('.squares').on('click', (event) =>{
-
+      var audio = $("#mysoundclip")[0];
+      audio.play();
       if(isChallenge==true)
       {
         let currentTime = document.getElementById("#clock").innerHTML;
@@ -224,6 +227,7 @@ $(window).scroll(function() {
           gridClickCount = 1;
         }
       }
+
     })
 
 }
