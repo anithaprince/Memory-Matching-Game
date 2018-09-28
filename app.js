@@ -292,6 +292,10 @@ $(window).scroll(function() {
     $('#challengeInstruction').css('display','none');
     timerStart();
   });
+  $('.button').on('click',() =>{
+    var audio2 = $("#mysoundclip2")[0];
+    audio2.play();
+  })
 
 
 /*********************function for timer*******************************/
