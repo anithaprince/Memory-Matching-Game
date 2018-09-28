@@ -296,6 +296,10 @@ $(window).scroll(function() {
     var audio2 = $("#mysoundclip2")[0];
     audio2.play();
   })
+  $('#button').on('click',() =>{
+    var audio2 = $("#mysoundclip2")[0];
+    audio2.play();
+  })
 
 
 /*********************function for timer*******************************/
